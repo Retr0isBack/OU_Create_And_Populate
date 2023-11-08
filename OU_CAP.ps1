@@ -9,9 +9,9 @@ New-ADOrganizationalUnit -Name $NewOU -Path "DC=XYZ,DC=XYZ"
   
 # Store the data from NewUsersFinal.csv in the $ADUsers variable
 $ADUsers = Import-Csv "XYZ:\xyz\xyz.csv" #-Delimiter ";"
-
+#Delimiter can be necessary. By current knowledge - not needed except for special cases 
 # Define UPN
-$UPN = "exoip.com"
+$UPN = "XYZ"
 
 # Loop through each row containing user details in the CSV file
 foreach ($User in $ADUsers) {
