@@ -3,6 +3,7 @@ Import-Module ActiveDirectory
 
 # Create an OU subfolder when transferring userdate from an old OU to a new OU 
 $NewOU = #For Example the old OU name + Users so for ex. StuttgartUsers or TimbuktuUsers
+#The created OU can be further custimozed with a ton of given parameters . A full list of all currently useable parameters : https://learn.microsoft.com/en-us/powershell/module/activedirectory/new-adorganizationalunit?view=windowsserver2022-ps
 # Specify the OU Path for future Usage
 $OUPath = 'OU=$NewOU,DC=XYZ,DC=XYZ'
 New-ADOrganizationalUnit -Name $NewOU -Path "DC=XYZ,DC=XYZ"
