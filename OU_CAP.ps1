@@ -12,7 +12,7 @@ foreach ($User in $ADUsers) {
 
     #Read user data from each field in each row and assign the data to a variable as below
     $username = $User.username
-    $password = $User.password
+    $password = $User.password #This line can obviously also be used to give all new users one premade PW
     $firstname = $User.firstname
     $lastname = $User.lastname
     $initials = $User.initials
