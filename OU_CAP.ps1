@@ -70,3 +70,5 @@ foreach ($User in $ADUsers) {
         Write-Host "The user account $username is created." -ForegroundColor Cyan
     }
 }
+
+pause
