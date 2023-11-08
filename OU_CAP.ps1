@@ -3,6 +3,8 @@ Import-Module ActiveDirectory
 
 # Create an OU subfolder when transferring userdate from an old OU to a new OU 
 $NewOU = #For Example the old OU name + Users so for ex. StuttgartUsers or TimbuktuUsers
+# Specify the OU Path for future Usage
+$OUPath = 'OU=$NewOU,DC=XYZ,DC=XYZ'
 New-ADOrganizationalUnit -Name $NewOU -Path "DC=XYZ,DC=XYZ"
   
 # Store the data from NewUsersFinal.csv in the $ADUsers variable
@@ -32,7 +34,7 @@ foreach ($User in $ADUsers) {
     $department = $User.department
 
     # Check to see if the user already exists in AD
-    if (Get-ADUser -Filter "SamAccountName -eq '$username'") {
+    if (Get-ADUser -Filter  -SearchBase $OUPath "SamAccountName -eq '$username'") {
         
         # If user does exist, give a warning
         Write-Warning "A user account with username $username already exists in this Organizational Unit."
